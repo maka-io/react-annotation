@@ -4,7 +4,7 @@ export default class Connector extends React.Component {
   getComponents() {}
 
   render() {
-    const { color, dx, dy, customID } = this.props
+    const { color, dx, dy, customID, strokeDasharray } = this.props
 
     if (dx === 0 && dy === 0) {
       return <g className="annotation-connector" />
@@ -42,6 +42,7 @@ export default class Connector extends React.Component {
                 className={c.className}
                 fill="none"
                 stroke={color}
+                strokeDasharray={strokeDasharray}
                 {...attrs}
               >
                 {c.attrs.text}

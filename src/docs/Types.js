@@ -133,13 +133,16 @@ const typesOrder = [
 ]
 
 export default class Types extends React.Component {
-  state = {
-    name: "AnnotationLabel",
-    description: types.AnnotationLabel.summary,
-    editMode: true,
-    connector: {},
-    note: {},
-    subject: {}
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "AnnotationLabel",
+      description: types.AnnotationLabel.summary,
+      editMode: true,
+      connector: {},
+      note: {},
+      subject: {}
+    }
   }
 
   updateType(t) {
@@ -522,7 +525,7 @@ export default class Types extends React.Component {
         </div>
         <Code>
           {`
-        /* This code is UPDATING based on the UI selections above */  
+        /* This code is UPDATING based on the UI selections above */
         /* With built-in defaults */
         <${name}
           x={150}
@@ -548,14 +551,14 @@ export default class Types extends React.Component {
         />
         //
         /* Or with composable annotation parts */
-      
+
         <${this.state.editMode ? `EditableAnnotation` : `Annotation`}
           x={150}
           y={170}
           dy={117}
           dx={162}
-          color={"${theme.accent}"}     
-          
+          color={"${theme.accent}"}
+
           title={"${note.title}"}
           label={"${note.label}"}
           ${(t.subject

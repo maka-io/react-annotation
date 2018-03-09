@@ -5,7 +5,7 @@ export default class Subject extends React.Component {
   getComponents() {}
 
   render() {
-    const { editMode, color } = this.props
+    const { editMode, color, strokeDasharray } = this.props
 
     const d = this.getComponents(this.props) || {}
 
@@ -63,6 +63,7 @@ export default class Subject extends React.Component {
                 className={c.className}
                 fill="none"
                 stroke={color}
+                strokeDasharray={strokeDasharray}
                 {...attrs}
               >
                 {c.attrs.text}
